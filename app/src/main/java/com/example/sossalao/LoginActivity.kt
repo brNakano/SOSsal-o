@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun onClickLogin(){
-        val intent = Intent(this, HomeActivity::class.java)
+        val intent = Intent(this, ScheduleActivity::class.java)
         val login = username.text.toString()
         val password = password.text.toString()
         if (login.length > 3 && password.length > 3) {
