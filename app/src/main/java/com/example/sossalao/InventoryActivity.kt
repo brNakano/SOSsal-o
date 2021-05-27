@@ -1,47 +1,29 @@
 package com.example.sossalao
 
-import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_schedule.*
-import kotlinx.android.synthetic.main.lateral_menu_header.*
 import kotlinx.android.synthetic.main.lateral_menu_header.view.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-
-open class ScheduleActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    val context: Context get() = this
-
+class InventoryActivity : ScheduleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_schedule)
-        val it = intent
-        val token = it.getStringExtra("tokenAuth")
-        Log.i("Informacao: ", token.toString())
+        setContentView(R.layout.activity_inventory)
 
         setSupportActionBar(toolbar)
-        supportActionBar?.title = "Agenda"
+        supportActionBar?.title = "Estoque"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        configuraMenuLateral()
-        mensagemInicial.text = "nada"
 
+        configuraMenuLateral()
 
     }
-/*    private fun loading(){
-        GlobalScope.launch(context = Dispatchers.Main) {
-            progressBar.visibility = View.VISIBLE
-            delay(10000)
-            progressBar.visibility = View.GONE
-        }
-    }*/
 
     private fun configuraMenuLateral() {
         // ícone de menu (hamburger) para mostrar o menu

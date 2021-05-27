@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_diciplinas"
-            android:title="Disciplinas"
-            android:checked="true"/>
+            android:id="@+id/nav_schedule"
+            android:title="Agenda"
+            android:checked="true" />
         <item
-            android:id="@+id/nav_forum"
-            android:title="Fórum" />
+            android:id="@+id/nav_products"
+            android:title="Produtos" />
         <item
-            android:id="@+id/nav_mensagens"
-            android:title="Mensagens" />
+            android:id="@+id/nav_people"
+            android:title="Pessoas" />
         <item
-            android:id="@+id/nav_localizacao"
-            android:title="Localização" />
+            android:id="@+id/nav_procedures"
+            android:title="Serviços" />
         <item
             android:id="@+id/nav_config"
             android:title="Configurações" />

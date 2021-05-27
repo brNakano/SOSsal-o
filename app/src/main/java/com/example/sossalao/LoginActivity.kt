@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun loginAuthenticator(userName: String, password: String?): String {
-        val serverURL: String = "http://18.213.115.53:32768/api/auth"
+        val serverURL: String = "http://3.93.42.204:32770/api/auth"
         val url = URL(serverURL)
         var token = ""
         val connection = url.openConnection() as HttpURLConnection
