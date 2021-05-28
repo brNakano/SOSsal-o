@@ -15,7 +15,7 @@ class Inventory : Serializable {
     var description = ""
 
     override fun toString(): String {
-        return "{'name': ${this.name.toString()}, 'make': ${this.make.toString()}, 'description': ${this.description.toString()}}"
+        return "{'name': '${this.name.toString()}', 'make': '${this.make.toString()}', 'description': '${this.description.toString()}'}"
     }
 
     fun toJson(): String {

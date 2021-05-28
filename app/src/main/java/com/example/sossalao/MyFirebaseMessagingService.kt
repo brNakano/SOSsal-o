@@ -13,8 +13,10 @@ class MyFirebaseMessagingService: FirebaseMessagingService(){
     override fun onNewToken(token: String) {
         super.onNewToken(token)
         Log.d(TAG, "Novo token: $token")
+        val key = "AAAAeJXv0bU:APA91bHMVTPBRC-paw4S5yRsmAuU6E8wiBOl9XzgZh2Wwq2mPGwQ4Yl0BvDgGufDgePxEmDrzHg94SMsEZmu17pthUjsyvnWaDdnrxyOOclRlwoz0yImo-RsD5jvhznzu_kZfScU306X"
 
         Prefs.setString("FB_TOKEN", token!!)
+        Prefs.setString("KEY_SERVER", key)
     }
 
 
@@ -41,6 +43,6 @@ class MyFirebaseMessagingService: FirebaseMessagingService(){
         var mensagem = mensagemRemota?.notification?.body!!
 
 
-        NotificationUtil.create(context, 1, intent, titulo, mensagem)
+        NotificationUtil.create(1, intent, titulo, mensagem)
     }
 }

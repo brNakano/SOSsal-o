@@ -25,9 +25,9 @@ object NotificationUtil {
         }
     }
 
-    fun create(context: Context, id: Int, intent: Intent, titulo: String, texto: String) {
+    fun create(id: Int, intent: Intent, titulo: String, texto: String) {
 
-
+        var context = SOSsalaoApplication.getInstance().applicationContext
         createChannel(SOSsalaoApplication.getInstance())
         val p = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
