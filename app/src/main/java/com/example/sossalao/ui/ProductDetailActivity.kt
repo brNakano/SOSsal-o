@@ -1,4 +1,4 @@
-package com.example.sossalao
+package com.example.sossalao.ui
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
+import com.example.sossalao.R
+import com.example.sossalao.repository.service.InventoryService
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import kotlinx.android.synthetic.main.toolbar.*
 
@@ -18,15 +20,16 @@ class ProductDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail)
 
-        val product = intent.getSerializableExtra("inventory") as Inventory
+        if (intent.getSerializableExtra("inventory") is Inventory)
+            product = intent.getSerializableExtra("inventory") as Inventory
 
         setSupportActionBar(toolbar)
         supportActionBar?.title = product?.name
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        detail_product_name.text = product.name
-        detail_product_make.text = product.make
-        detail_product_description.text = product.description
+        detail_product_name.text = product?.name
+        detail_product_make.text = product?.make
+        detail_product_description.text = product?.description
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

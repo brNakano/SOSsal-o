@@ -1,8 +1,11 @@
-package com.example.sossalao
+package com.example.sossalao.notify
 
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import com.example.sossalao.Prefs
+import com.example.sossalao.R
+import com.example.sossalao.ui.ProductDetailActivity
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 

@@ -1,4 +1,4 @@
-package com.example.sossalao
+package com.example.sossalao.ui
 
 import android.content.Context
 import android.content.Intent
@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sossalao.*
+import com.example.sossalao.repository.service.InventoryService
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_inventory.*
 import kotlinx.android.synthetic.main.lateral_menu_header.view.*
@@ -26,7 +28,7 @@ open class InventoryActivity : AppCompatActivity(), NavigationView.OnNavigationI
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inventory)
-        Log.i("Informacao: ", {Prefs.getString("API_TOKEN")}.toString())
+        Log.i("Informacao: ", { Prefs.getString("API_TOKEN") }.toString())
 
         setSupportActionBar(toolbar)
         supportActionBar?.title = "Produtos"
@@ -72,7 +74,10 @@ open class InventoryActivity : AppCompatActivity(), NavigationView.OnNavigationI
 
     private fun configMenu() {
 
-        var toogle = ActionBarDrawerToggle(this, drawerMenuLateral, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        var toogle = ActionBarDrawerToggle(this, drawerMenuLateral, toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
 
         drawerMenuLateral.addDrawerListener(toogle)
         toogle.syncState()

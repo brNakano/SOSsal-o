@@ -1,4 +1,4 @@
-package com.example.sossalao
+package com.example.sossalao.notify
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -7,6 +7,8 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.example.sossalao.R
+import com.example.sossalao.SOSsalaoApplication
 
 object NotificationUtil {
 

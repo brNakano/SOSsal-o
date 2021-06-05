@@ -1,4 +1,4 @@
-package com.example.sossalao
+package com.example.sossalao.repository
 
 import android.util.Log
 import okhttp3.MediaType

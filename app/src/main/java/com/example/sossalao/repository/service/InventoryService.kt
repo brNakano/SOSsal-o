@@ -1,9 +1,11 @@
-package com.example.sossalao
+package com.example.sossalao.repository.service
 
 import android.content.Context
 import android.util.Log
-import android.widget.Toast
-import com.example.sossalao.HttpHelper.JSON
+import com.example.sossalao.repository.HttpHelper
+import com.example.sossalao.ui.Inventory
+import com.example.sossalao.Prefs
+import com.example.sossalao.repository.Response
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.json.JSONObject
@@ -31,7 +33,7 @@ object InventoryService {
 
     fun delete(product: Inventory): Response {
         Log.d(TAG, product.idProduct.toString())
-        val url = "$host/api/stock/product/${product.idProduct}"
+        val url = "$host/product/${product.idProduct}"
         val json = HttpHelper.delete(url, token)
         Log.d(TAG, json)
         return parserJson(json)

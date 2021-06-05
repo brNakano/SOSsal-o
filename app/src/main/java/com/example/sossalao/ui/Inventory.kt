@@ -1,4 +1,4 @@
-package com.example.sossalao
+package com.example.sossalao.ui
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -15,7 +15,7 @@ class Inventory : Serializable {
     var description = ""
 
     override fun toString(): String {
-        return "{'name': '${this.name.toString()}', 'make': '${this.make.toString()}', 'description': '${this.description.toString()}'}"
+        return "{'idProduct': ${this.idProduct},'name': '${this.name.toString()}', 'make': '${this.make.toString()}', 'description': '${this.description.toString()}'}"
     }
 
     fun toJson(): String {

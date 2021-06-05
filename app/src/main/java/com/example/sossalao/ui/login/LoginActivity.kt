@@ -1,4 +1,4 @@
-package com.example.sossalao
+package com.example.sossalao.ui.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,9 @@ import android.view.KeyEvent
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sossalao.Prefs
+import com.example.sossalao.R
+import com.example.sossalao.ui.InventoryActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
 import java.io.*
@@ -86,7 +89,6 @@ class LoginActivity : AppCompatActivity() {
         return "Falha ao autenticar: "+connection.responseCode
     }
     private fun onChangePassword(){
-        val intent = Intent(this, ChangePassReqActivity::class.java)
-        startActivity(intent)
+        Toast.makeText(this, "Não é possivel trocar de senha", Toast.LENGTH_SHORT).show()
     }
 }

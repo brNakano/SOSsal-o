@@ -1,10 +1,12 @@
-package com.example.sossalao
+package com.example.sossalao.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.sossalao.notify.NotificationUtil
+import com.example.sossalao.R
+import com.example.sossalao.repository.service.InventoryService
 import kotlinx.android.synthetic.main.activity_form_inventory.*
 import kotlinx.android.synthetic.main.toolbar.*
-import org.json.JSONObject
 
 class FormInventoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
