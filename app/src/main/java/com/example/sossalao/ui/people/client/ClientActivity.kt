@@ -14,6 +14,7 @@ import com.example.sossalao.Prefs
 import com.example.sossalao.R
 import com.example.sossalao.ui.FormInventoryActivity
 import com.example.sossalao.ui.ProductDetailActivity
+import com.example.sossalao.ui.people.FormPeopleActivity
 import com.example.sossalao.ui.people.People
 import com.example.sossalao.ui.people.PeopleAdapter
 import com.example.sossalao.ui.people.PeopleService
@@ -90,7 +91,9 @@ class ClientActivity : AppCompatActivity() {
                 finish()
             }
             R.id.action_add -> {
-                startActivity(Intent(this, FormInventoryActivity::class.java))
+                intent = Intent(this, FormPeopleActivity::class.java)
+                intent.putExtra("view", "Cliente")
+                startActivity(intent)
             }
             R.id.action_config -> {
                 Toast.makeText(context, "Botão de configuracoes", Toast.LENGTH_LONG).show()

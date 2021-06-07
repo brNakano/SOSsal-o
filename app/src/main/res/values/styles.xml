@@ -10,9 +10,7 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
     </style>
-    <style name="SOSsalao.Home" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/background</item>
-        <item name="colorPrimaryDark">@color/background</item>
+    <style name="SOSsalao.Home" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!--config toolbar-->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
