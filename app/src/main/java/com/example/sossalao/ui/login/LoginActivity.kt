@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun dev_pass(){
         val intent = Intent(this, ScheduleActivity::class.java)
-        loginAuthenticator("aluno", "impacta")
+        loginAuthenticator("hrqlp", "devsos21!")
         startActivity(intent)
     }
 
@@ -74,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun loginAuthenticator(userName: String, password: String?): Boolean {
-        val serverURL: String = "http://3.93.42.204:32770/api/auth"
+        val serverURL: String = "http://3.93.42.204:32773/api/auth"
         val url = URL(serverURL)
         var token = ""
         val connection = url.openConnection() as HttpURLConnection

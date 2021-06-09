@@ -69,9 +69,17 @@ class ClientActivity : AppCompatActivity() {
     }
 
     fun onClickClient(people: People) {
-        val intent = Intent(context, PeopleDetailActivity::class.java)
-        intent.putExtra("people", people)
-        startActivityForResult(intent, REQUEST_REMOVE)
+        val select = Prefs.getString("select")
+        if (select == "normal"){
+            val intent = Intent(context, PeopleDetailActivity::class.java)
+            intent.putExtra("people", people)
+            startActivityForResult(intent, REQUEST_REMOVE)
+        }
+        if(select == "add"){
+            Prefs.setString("clientId", people.idPeople.toString())
+            Prefs.setString("clientName", people.name)
+            finish()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

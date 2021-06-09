@@ -36,7 +36,7 @@ class FormPeopleActivity : AppCompatActivity() {
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        form_people_send.setOnClickListener { selectMode(mode) }
+        form_people_send.setOnClickListener { selectMode(mode, title) }
         form_people_cancel.setOnClickListener { finish() }
     }
 
@@ -45,9 +45,9 @@ class FormPeopleActivity : AppCompatActivity() {
         return true;
     }
 
-    fun selectMode(mode: String?){
+    fun selectMode(mode: String?, title: String?){
         if (mode == "post"){
-            postPeople()
+            postPeople(title)
         }
         if (mode == "put"){
             updatePeople(peoplePut)
@@ -62,7 +62,7 @@ class FormPeopleActivity : AppCompatActivity() {
 
     }
 
-    fun postPeople(){
+    fun postPeople(title: String?){
         val people = People()
         people.name = form_people_name.editText?.text.toString()
         people.email = form_people_email.editText?.text.toString()

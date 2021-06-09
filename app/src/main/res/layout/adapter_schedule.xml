@@ -6,8 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/card_schedule"
-    android:layout_marginBottom="6dp"
-    android:layout_marginTop="6dp"
     app:cardElevation="0dp"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="false"
@@ -18,37 +16,120 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:fontFamily="@font/roboto_bold"
-            android:id="@+id/schedule_checkIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/schedule_employee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:textSize="20sp"
-            />
-        <TextView
-            android:id="@+id/schedule_client"
+        android:orientation="horizontal"
+        android:background="@drawable/status_background">
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/day_divider">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/week_day"
+                    android:gravity="center_vertical"
+                    android:text="Dom"/>
+
+                <TextView
+                    android:id="@+id/day_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="28" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:textSize="18sp"/>
-        <TextView
-            android:id="@+id/schedule_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:textSize="18sp"/>
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="260dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/icon_time_card"
+
+                        android:src="@drawable/ic_clock"/>
+                    <TextView
+                        android:fontFamily="@font/roboto_bold"
+                        android:id="@+id/schedule_checkIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:textSize="20sp"
+                        android:text="10:20"/>
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="4dp"
+
+                    app:cardCornerRadius="3dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
+                    <LinearLayout
+                        android:id="@+id/card_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/detail_status"
+                        android:textColor="@color/white"
+                        android:background="@color/marcado"
+                        android:text="Marcado"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/full_date"
+                    android:text="09, Junho de 2021"/>
+
+
+                <TextView
+                    android:id="@+id/schedule_employee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    android:text="Funcionário: Agatha"
+                    />
+                <TextView
+                    android:id="@+id/schedule_client"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cliente: Maria"
+                    android:layout_marginTop="16dp"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/schedule_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

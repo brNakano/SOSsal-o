@@ -12,9 +12,9 @@ class Schedule : Serializable {
     var idScheduling:Long = 1
     var checkIn = ""
     var checkOut = ""
-    var employeeId = 0
-    var clientId = 0
-    var saleId = 1
+    var employeeId: Int? = 0
+    var clientId: Int? = 0
+    var procedureId = 1
     var status = 0
 
 
@@ -24,7 +24,7 @@ class Schedule : Serializable {
             checkOut = this.checkOut,
             employeeId = this.employeeId,
             clientId = this.clientId,
-            saleId = this.saleId,
+            procedureId = this.procedureId,
             status = this.status
         )
         return GsonBuilder().create().toJson(schedule)
@@ -35,16 +35,15 @@ class Schedule : Serializable {
     }
 
     fun changeStatus(status: String){
-        val statusSchedule =  StatusSchedule()
-        this.status = statusSchedule.getScheduleNumber(status)
+        this.status = StatusSchedule.getScheduleNumber(status)
     }
 }
 
 data class PostSchdule(
     val checkIn: String,
     val checkOut: String,
-    val employeeId: Int,
-    val clientId: Int,
-    val saleId: Int,
+    val employeeId: Int?,
+    val clientId: Int?,
+    val procedureId: Int,
     val status: Int
 )

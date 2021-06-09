@@ -3,13 +3,13 @@ package com.example.sossalao.ui.schedule
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sossalao.R
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.util.*
+import com.example.sossalao.ui.people.PeopleService
 
 class ScheduleAdapter (
     val scheduleList: List<Schedule>,
@@ -20,12 +20,20 @@ class ScheduleAdapter (
             val scheduleCheckIn: TextView
             val scheduleEmployee: TextView
             val scheduleClient: TextView
+            val scheduleStatus: TextView
+            val scheduleDayNum: TextView
+            val scheduleDayWeek: TextView
+            val fullDate: TextView
             var cardView: CardView
 
             init {
                 scheduleCheckIn = view.findViewById<TextView>(R.id.schedule_checkIn)
                 scheduleEmployee = view.findViewById<TextView>(R.id.schedule_employee)
                 scheduleClient = view.findViewById<TextView>(R.id.schedule_client)
+                scheduleStatus = view.findViewById<TextView>(R.id.detail_status)
+                scheduleDayNum = view.findViewById<TextView>(R.id.day_num)
+                scheduleDayWeek = view.findViewById<TextView>(R.id.week_day)
+                fullDate = view.findViewById<TextView>(R.id.full_date)
                 cardView = view.findViewById<CardView>(R.id.card_schedule)
 
             }
@@ -57,9 +65,21 @@ class ScheduleAdapter (
 /*            val simpleDate = SimpleDateFormat("dd.E")
             val data = simpleDate.format(schedule.checkIn)*/
 
-            holder.scheduleCheckIn.text = schedule.checkIn
-            holder.scheduleEmployee.text = "Id do empregado: ${schedule.employeeId}"
-            holder.scheduleClient.text = "Id do cliente: ${schedule.clientId}"
+            val cliente = PeopleService.getPeopleById(context, schedule.clientId)
+            val employee = PeopleService.getPeopleById(context, schedule.employeeId)
+
+            val dateTime = "${ScheduleDate.hour(schedule.checkIn)}:${ScheduleDate.minute(schedule.checkIn)}"
+            val fullDateTime = "${ScheduleDate.dayNum(schedule.checkIn)}, ${ScheduleDate.month(schedule.checkIn)} de ${ScheduleDate.year(schedule.checkIn)}"
+            holder.scheduleDayNum.text = ScheduleDate.dayNum(schedule.checkIn).toString()
+            holder.scheduleDayWeek.text = ScheduleDate.dayWeek(schedule.checkIn)
+            holder.fullDate.text = fullDateTime
+            holder.scheduleCheckIn.text = dateTime
+
+            holder.scheduleStatus.text = StatusSchedule.getSchedulevalue(schedule.status)
+            val color = StatusSchedule.getStatusColor(StatusSchedule.getSchedulevalue(schedule.status))
+            holder.scheduleStatus.setBackgroundColor(ContextCompat.getColor(context, color))
+            holder.scheduleEmployee.text = "Funcionário: ${employee.name}"
+            holder.scheduleClient.text = "Cliente: ${cliente.name}"
 
 
 
@@ -67,4 +87,5 @@ class ScheduleAdapter (
 
             holder.itemView.setOnClickListener {onClick(schedule)}
         }
+
 }

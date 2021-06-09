@@ -66,9 +66,17 @@ class EmployeeActivity : AppCompatActivity() {
     }
 
     fun onClickEmployee(people: People) {
-        val intent = Intent(context, PeopleDetailActivity::class.java)
-        intent.putExtra("people", people)
-        startActivityForResult(intent, REQUEST_REMOVE)
+        val select = Prefs.getString("select")
+        if (select == "normal"){
+            val intent = Intent(context, PeopleDetailActivity::class.java)
+            intent.putExtra("people", people)
+            startActivityForResult(intent, REQUEST_REMOVE)
+        }
+        if(select == "add"){
+            Prefs.setString("employeeId", people.idPeople.toString())
+            Prefs.setString("employeeName", people.name)
+            finish()
+        }
     }
 
 /*    private fun loading(){

@@ -15,4 +15,8 @@
     <color name="gray_black">#292929</color>
     <color name="delete">#ff0000</color>
     <color name="edit">#019ade</color>
+    <color name="marcado">#0a9145</color>
+    <color name="adiado">#efb14e</color>
+    <color name="cancelado">#eb5160</color>
+    <color name="atendido">#008ec9</color>
 </resources>

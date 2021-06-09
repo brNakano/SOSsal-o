@@ -14,12 +14,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sossalao.Prefs
 import com.example.sossalao.R
-import com.example.sossalao.repository.service.InventoryService
 import com.example.sossalao.ui.*
 import com.example.sossalao.ui.people.client.ClientActivity
 import com.example.sossalao.ui.people.employee.EmployeeActivity
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_inventory.*
 import kotlinx.android.synthetic.main.activity_inventory.drawerMenuLateral
 import kotlinx.android.synthetic.main.activity_inventory.lateral_menu
 import kotlinx.android.synthetic.main.activity_schedule.*
@@ -104,11 +102,16 @@ class ScheduleActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
 
             R.id.nav_employee -> {
-                startActivity(Intent(context, EmployeeActivity::class.java))
+                Prefs.setString("select", "normal")
+                val intent = Intent(context, EmployeeActivity::class.java)
+                intent.putExtra("select", "normal")
+                startActivity(intent)
             }
 
             R.id.nav_client -> {
-                startActivity(Intent(context, ClientActivity::class.java))
+                Prefs.setString("select", "normal")
+                val intent = Intent(context, ClientActivity::class.java)
+                startActivity(intent)
             }
 
             R.id.nav_logout -> {
@@ -135,7 +138,10 @@ class ScheduleActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 finish()
             }
             R.id.action_add -> {
-                startActivity(Intent(this, FormInventoryActivity::class.java))
+                var intent = Intent(this, FormScheduleActivity::class.java)
+                intent.putExtra("view", "Agendamento")
+                intent.putExtra("mode", "post")
+                startActivity(intent)
             }
             R.id.action_config -> {
                 Toast.makeText(context, "Botão de configuracoes", Toast.LENGTH_LONG).show()

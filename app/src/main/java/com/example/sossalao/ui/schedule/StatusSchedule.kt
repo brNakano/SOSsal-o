@@ -1,6 +1,8 @@
 package com.example.sossalao.ui.schedule
 
-class StatusSchedule {
+import com.example.sossalao.R
+
+object StatusSchedule {
 
     fun getSchedulevalue(id: Int): String {
         var value = "0"
@@ -32,6 +34,23 @@ class StatusSchedule {
         }
         if(status == "Marcado"){
             value = 3
+        }
+        return value
+    }
+
+    fun getStatusColor(status: String): Int {
+        var value = 0
+        if(status == "Adiado"){
+            value = R.color.adiado
+        }
+        if(status == "Atendido"){
+            value = R.color.atendido
+        }
+        if(status == "Cancelado"){
+            value = R.color.cancelado
+        }
+        if(status == "Marcado"){
+            value = R.color.marcado
         }
         return value
     }

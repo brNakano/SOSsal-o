@@ -10,7 +10,8 @@ import com.google.gson.reflect.TypeToken
 
 object PeopleService {
 
-    val host = "http://3.93.42.204:32770"
+    /*val host = "http://3.93.42.204:32770"*/
+    val host = "http://3.93.42.204:32773"
     val TAG = "PeopleService"
     val token = Prefs.getString("API_TOKEN").toString()
 
@@ -21,7 +22,7 @@ object PeopleService {
 
     }
 
-    fun getPeopleById(context: Context, id: Int): People {
+    fun getPeopleById(context: Context, id: Int?): People {
         val url = "$host/api/people/$id"
         val json = HttpHelper.get(url, token, "API")
 

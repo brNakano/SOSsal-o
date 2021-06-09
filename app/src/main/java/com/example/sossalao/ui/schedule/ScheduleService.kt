@@ -13,7 +13,8 @@ import org.json.JSONObject
 
 object ScheduleService {
 
-    val host = "http://3.93.42.204:32770"
+    /*val host = "http://3.93.42.204:32770"*/
+    val host = "http://3.93.42.204:32773"
     val TAG = "ScheduleService"
     val token = Prefs.getString("API_TOKEN").toString()
 
